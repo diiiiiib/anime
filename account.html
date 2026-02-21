@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحساب - ANIME_DIIB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-topbar">
+        <div class="container topbar-content">
+            <a href="index.html" class="topbar-logo">ANIME_DIIB</a>
+            <span class="topbar-tagline">الحساب</span>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="section account-section">
+            <div class="profile-card">
+                <img id="account-avatar" src="https://placehold.co/120x120" alt="avatar" class="profile-avatar">
+                <h2 id="account-name">اسم المستخدم</h2>
+                <div class="account-email" id="account-email">user@example.com</div>
+                <div class="account-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="account-joined">تاريخ التسجيل</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-comments"></i>
+                        <span id="account-chats">0 محادثة</span>
+                    </div>
+                </div>
+                <div class="account-actions">
+                    <button id="edit-profile" class="btn primary">تعديل الملف</button>
+                </div>
+            </div>
+
+            <div class="account-footer">
+                <button id="logout" class="btn danger">تسجيل الخروج</button>
+            </div>
+        </section>
+    </main>
+
+        <!-- Edit profile modal -->
+        <div id="edit-modal" class="modal" aria-hidden="true" style="display:none;">
+            <div class="modal-content">
+                <h3 id="edit-modal-title">تعديل الملف الشخصي</h3>
+                <form id="edit-form">
+                    <label>اسم المستخدم</label>
+                    <input type="text" id="edit-name" placeholder="أدخل اسمك" required>
+                    <label>رابط صورة الملف الشخصي (اختياري)</label>
+                    <input type="url" id="edit-avatar-url" placeholder="أدخل رابط الصورة (مثل: https://example.com/image.jpg)">
+                    <div style="margin:8px 0;"><img id="edit-avatar-preview" src="https://placehold.co/120x120" alt="preview" style="width:120px;height:120px;border-radius:8px;object-fit:cover;"/></div>
+                    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px;">
+                        <button type="button" id="edit-cancel" class="btn ghost">إلغاء</button>
+                        <button type="submit" class="btn">حفظ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-label">الرئيسية</span>
+        </a>
+        <a href="anime.html" class="nav-item">
+            <i class="fas fa-tv nav-icon"></i>
+            <span class="nav-label">مسلسلات</span>
+        </a>
+        <a href="movie.html" class="nav-item">
+            <i class="fas fa-film nav-icon"></i>
+            <span class="nav-label">أفلام</span>
+        </a>
+        <a href="chats.html" class="nav-item">
+            <i class="fas fa-comments nav-icon"></i>
+            <span class="nav-label">الدرشات</span>
+        </a>
+        <a href="account.html" class="nav-item active">
+            <i class="fas fa-user nav-icon"></i>
+            <span class="nav-label">الحساب</span>
+        </a>
+    </nav>
+
+    <script src="js/config.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/performance.js"></script>
+</body>
+</html>

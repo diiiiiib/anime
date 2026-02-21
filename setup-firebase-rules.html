@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعداد قواعد أمان Firebase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .step {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>إعداد قواعد أمان Firebase</h1>
+
+        <div class="warning">
+            <strong>مهم:</strong> يجب تعديل قواعد الأمان في Firestore Database للسماح للمستخدمين المسجلين بالقراءة والكتابة.
+        </div>
+
+        <h2>الخطوات المطلوبة:</h2>
+
+        <div class="step">
+            <h3>الخطوة 1: فتح Firebase Console</h3>
+            <p>افتح <a href="https://console.firebase.google.com/" target="_blank" class="btn">Firebase Console</a></p>
+        </div>
+
+        <div class="step">
+            <h3>الخطوة 2: اختيار المشروع</h3>
+            <p>اختر مشروعك (xodiib) من القائمة</p>
+        </div>
+
+        <div class="step">
+            <h3>الخطوة 3: فتح Firestore Database</h3>
+            <p>من القائمة الجانبية، اختر <strong>Firestore Database</strong></p>
+        </div>
+
+        <div class="step">
+            <h3>الخطوة 4: إنشاء قاعدة البيانات (إذا لم تكن موجودة)</h3>
+            <p>إذا لم تكن قاعدة البيانات مفعلة، اضغط على <strong>Create Database</strong></p>
+            <p>اختر <strong>Start in test mode</strong> (للتجربة)</p>
+            <p>اختر منطقة قريبة منك (مثل: europe-west1)</p>
+        </div>
+
+        <div class="step">
+            <h3>الخطوة 5: تعديل قواعد الأمان (Rules)</h3>
+            <p>في صفحة Firestore Database، اضغط على تبويب <strong>Rules</strong></p>
+            <p>استبدل القواعد الحالية بالقواعد التالية:</p>
+
+            <div class="code-block">
+<pre>
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // السماح للمستخدمين المسجلين بالقراءة والكتابة
+    match /users/{userId} {
+      allow read, write: if request.auth != null;
+    }
+
+    match /conversations/{conversationId} {
+      allow read, write: if request.auth != null;
+    }
+
+    match /conversations/{conversationId}/messages/{messageId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+</pre>
+            </div>
+
+            <p>اضغط على <strong>Publish</strong> لحفظ التغييرات</p>
+        </div>
+
+        <div class="warning">
+            <strong>ملاحظة:</strong> بعد تعديل القواعد، قد يستغرق الأمر بضع دقائق حتى تصبح التغييرات سارية المفعول.
+        </div>
+
+        <h2>استكشاف الأخطاء</h2>
+
+        <div class="step">
+            <h3>الخطأ: "Missing or insufficient permissions"</h3>
+            <p><strong>السبب:</strong> قواعد الأمان لا تسمح بالوصول</p>
+            <p><strong>الحل:</strong> اتبع الخطوات أعلاه لتعديل القواعد</p>
+        </div>
+
+        <div class="step">
+            <h3>الخطأ: "User not found"</h3>
+            <p><strong>السبب:</strong> المستخدم غير مسجل</p>
+            <p><strong>الحل:</strong> تأكد من تسجيل الدخول بشكل صحيح</p>
+        </div>
+
+        <div class="step">
+            <h3>الخطأ: "Network request failed"</h3>
+            <p><strong>السبب:</strong> مشكلة في الاتصال بالإنترنت</p>
+            <p><strong>الحل:</strong> تحقق من اتصالك بالإنترنت</p>
+        </div>
+    </div>
+</body>
+</html>

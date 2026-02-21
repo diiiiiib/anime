@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الأنمي - ANIME_DIIB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-topbar">
+        <div class="container topbar-content">
+            <a href="index.html" class="topbar-logo">ANIME_DIIB</a>
+            <span class="topbar-tagline">موقعك المفضل لمشاهدة الأنمي</span>
+        </div>
+    </div>
+    <!-- رأس صفحة التفاصيل -->
+    <div class="details-header">
+        <button id="back-button" class="back-button" aria-label="العودة للسابق">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع الداكن">
+            <i class="fas fa-moon"></i>
+        </button>
+        <img id="anime-background" class="details-background" src="" alt="">
+        <div class="container details-content">
+            <img id="anime-cover" class="details-cover" src="" alt="">
+            <div class="details-info">
+                <h1 id="anime-title" class="details-title"></h1>
+                <div class="details-meta">
+                    <span id="anime-year"></span>
+                    <span>•</span>
+                    <span id="anime-type"></span>
+                    <span>•</span>
+                    <span class="anime-rating" id="anime-rating"></span>
+                </div>
+                <div id="anime-genres" class="details-genre">
+                    <!-- سيتم تحميل التصنيفات هنا بواسطة JavaScript -->
+                </div>
+                <p id="anime-description" class="details-description"></p>
+            </div>
+        </div>
+    </div>
+   <script>
+  atOptions = {
+    'key' : 'ecc9f477ccb9036606a4d34a3692b73d',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/ecc9f477ccb9036606a4d34a3692b73d/invoke.js"></script>
+    <!-- المحتوى الرئيسي -->
+    <main class="container">
+        <!-- قسم الحلقات -->
+        <section class="episodes-container">
+            <div id="episodes-container">
+                <!-- سيتم تحميل الحلقات هنا بواسطة JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- زر العودة للأعلى -->
+    <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- التنقل السفلي -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-label">الرئيسية</span>
+        </a>
+        <a href="anime.html" class="nav-item">
+            <i class="fas fa-tv nav-icon"></i>
+            <span class="nav-label">مسلسلات</span>
+        </a>
+        <a href="movie.html" class="nav-item">
+            <i class="fas fa-film nav-icon"></i>
+            <span class="nav-label">أفلام</span>
+        </a>
+    </nav>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/details.js"></script>
+    <script src="js/performance.js"></script>
+</body>
+</html>

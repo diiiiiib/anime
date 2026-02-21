@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرشات - ANIME_DIIB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-topbar">
+        <div class="container topbar-content">
+            <a href="index.html" class="topbar-logo">ANIME_DIIB</a>
+            <span class="topbar-tagline">الدرشات</span>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="section chat-section">
+            <div class="tabs">
+                <button class="tab active" data-tab="messages">الرسائل</button>
+                <button class="tab" data-tab="friends">الأصدقاء</button>
+            </div>
+
+            <div class="tab-content" id="messages">
+                <div class="public-chat-banner">
+                    <div class="public-chat-info">
+                        <i class="fas fa-globe"></i>
+                        <span>المحادثة العامة</span>
+                    </div>
+                    <button class="btn join-public-chat" id="join-public-chat">انضم للمحادثة</button>
+                </div>
+                <div class="messages-list">
+                    <!-- قائمة المحادثات ستظهر هنا -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="friends" style="display:none;">
+                <div class="friends-header">
+                    <input type="text" id="friend-search" placeholder="ابحث عن صديق..." class="search-input">
+                </div>
+                <div class="friends-list">
+                    <!-- قائمة الأصدقاء ستظهر هنا -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login / Register Modal (shown if user not authenticated) -->
+    <div id="auth-modal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab active" data-mode="login">تسجيل الدخول</button>
+                <button type="button" class="auth-tab" data-mode="register">إنشاء حساب</button>
+            </div>
+
+            <form id="auth-form">
+                <div id="auth-error" style="display:none;background:#fee;border:1px solid #f99;padding:8px;margin-bottom:8px;color:#900;font-size:14px;" role="alert"></div>
+                <label>البريد الإلكتروني</label>
+                <input type="email" id="auth-email" required placeholder="you@example.com">
+
+                <div id="register-fields" style="display:none;">
+                    <label>اسم العرض (مرئي)</label>
+                    <input type="text" id="auth-displayname" placeholder="اسم العرض">
+                </div>
+
+                <label>كلمة المرور</label>
+                <input type="password" id="auth-password" required>
+
+                <div style="margin:6px 0;text-align:left;">
+                    <button type="button" id="forgot-password" class="btn ghost">هل نسيت كلمة المرور؟</button>
+                </div>
+
+                <div id="register-fields" style="display:none;">
+                    <label>رابط صورة الملف الشخصي</label>
+                    <input type="url" id="auth-avatar-url" placeholder="أدخل رابط الصورة (مثل: https://example.com/image.jpg)">
+                    <div style="margin:8px 0;"><img id="auth-avatar-preview" src="https://placehold.co/80x80" alt="preview" style="width:80px;height:80px;border-radius:8px;object-fit:cover;"/></div>
+                </div>
+
+                <button type="submit" class="btn" id="auth-submit-btn">تسجيل الدخول</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-label">الرئيسية</span>
+        </a>
+        <a href="anime.html" class="nav-item">
+            <i class="fas fa-tv nav-icon"></i>
+            <span class="nav-label">مسلسلات</span>
+        </a>
+        <a href="movie.html" class="nav-item">
+            <i class="fas fa-film nav-icon"></i>
+            <span class="nav-label">أفلام</span>
+        </a>
+        <a href="chats.html" class="nav-item active">
+            <i class="fas fa-comments nav-icon"></i>
+            <span class="nav-label">الدرشات</span>
+        </a>
+        <a href="account.html" class="nav-item">
+            <i class="fas fa-user nav-icon"></i>
+            <span class="nav-label">الحساب</span>
+        </a>
+    </nav>
+
+    <script src="js/config.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/chats.js"></script>
+    <script src="js/performance.js"></script>
+</body>
+</html>
