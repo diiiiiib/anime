@@ -489,8 +489,8 @@ const animes = [
     id: 16,
     title: "قاتل الشياطين | قطار النهاية",
     type: "movie",
-    cover: "kimetsu_f.jpg",
-    background: "kimetsu_f.jpg",
+    cover: "kimetsuf.jpg",
+    background: "kimetsuf.jpg",
     description: "فيلم قاتل الشياطين: قطار النهاية هو فيلم أنمي يروي قصة تانجيرو كامادو وأصدقائه في معركة على متن قطار ملعون.",
     genre: ["أكشن", "رعب", "مغامرة"],
     rating: "9.0",
@@ -546,4 +546,5 @@ function getEpisode(animeId, episodeNumber) {
   if (!anime) return null;
   return anime.episodes.find(ep => ep.number === parseInt(episodeNumber));
 }
+
 
